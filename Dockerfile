@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+LABEL name lovato:bob
+LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 
 RUN apt-get update \
