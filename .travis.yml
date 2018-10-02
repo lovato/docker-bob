@@ -1,0 +1,20 @@
+sudo: required
+language: generic
+services:
+- docker
+branches:
+  except:
+  - master
+before_install:
+- sudo apt-get update -qq
+install:
+- npm install -g npm
+- npm install -g dockerlint
+- npm install -g markdownlint-cli
+- npm install -g travis-lint
+before_script:
+- travis-lint .travis.yml
+- dockerlint Dockerfile
+- markdownlint README.md
+script:
+- docker build --network=host -t local/bob .
