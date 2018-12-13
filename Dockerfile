@@ -6,34 +6,31 @@ LABEL maintainer="maglovato@gmail.com"
 
 RUN apt-get update \
     && apt-get install -y \
-        software-properties-common \
-        build-essential \
-        wget \
-        xvfb \
-        curl \
-        git \
-        mercurial \
-        maven \
-        openjdk-8-jdk \
-        ant \
-        ssh-client \
-        zip \
-        unzip \
-        iputils-ping \
-        redis-server \
-        httpie \
-        rpm \
-        npm \
-        python3-pip \
+    software-properties-common \
+    build-essential \
+    wget curl \
+    xvfb \
+    git mercurial \
+    openjdk-8-jdk maven ant \
+    ssh-client \
+    zip unzip \
+    iputils-ping \
+    redis-server \
+    gcc-multilib g++-multilib cmake \
+    httpie \
+    rpm \
+    npm \
+    python3-pip \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && apt-get autoremove -y \
-    && apt-get clean
+    && apt-get clean autoclean
 
 RUN pip3 install -U \
     pip \
     hooks4git \
     vex \
     flake8 \
+    conan \
     awscli
 
 RUN npm install -g n && apt-get remove -y nodejs && n lts
@@ -55,10 +52,17 @@ ENV LANG=C.UTF-8 \
 # Xvfb provide an in-memory X-session for tests that require a GUI
 ENV DISPLAY=:99
 
-# Create dirs and users
+# Create dirs and users for Bitbucket Pipelines
 RUN mkdir -p /opt/atlassian/bitbucketci/agent/build \
     && sed -i '/[ -z \"PS1\" ] && return/a\\ncase $- in\n*i*) ;;\n*) return;;\nesac' /root/.bashrc \
     && useradd --create-home --shell /bin/bash --uid 1000 pipelines
 
-WORKDIR /opt/atlassian/bitbucketci/agent/build
+RUN mkdir -p /code/src
+RUN mkdir -p /code/build
+
+RUN rm -rf /root/.cache/pip
+RUN npm cache clean --force
+
+# WORKDIR /opt/atlassian/bitbucketci/agent/build
+WORKDIR /code
 ENTRYPOINT /bin/bash
