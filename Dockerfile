@@ -4,50 +4,38 @@ LABEL name lovato:bob
 LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 
-RUN apt-get update \
-    && apt-get install -y \
-    software-properties-common \
-    build-essential \
-    wget curl \
-    xvfb \
-    git mercurial \
-    openjdk-8-jdk maven ant \
-    ssh-client \
-    zip unzip \
-    iputils-ping \
-    redis-server \
-    gcc-multilib g++-multilib cmake \
-    httpie \
-    rpm \
-    npm \
-    python3-pip \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && apt-get autoremove -y \
-    && apt-get clean autoclean
+RUN apt-get update
+RUN apt-get install -y software-properties-common
+RUN apt-get install -y build-essential
+RUN apt-get install -y wget curl
+RUN apt-get install -y vim
+RUN apt-get install -y xvfb
+RUN apt-get install -y git mercurial
+RUN apt-get install -y ssh-client
+RUN apt-get install -y zip unzip
+RUN apt-get install -y iputils-ping
+RUN apt-get install -y redis-server
+RUN apt-get install -y httpie
+RUN apt-get install -y rpm
+RUN apt-get install -y npm
+RUN apt-get install -y python3-pip
+# CleanUp
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get autoremove -y && apt-get clean autoclean
 
-RUN pip3 install -U \
-    pip \
-    hooks4git \
-    vex \
-    flake8 \
-    conan \
-    awscli
+RUN cd /opt && git clone https://github.com/andreafabrizi/Dropbox-Uploader.git
+ENV PATH $PATH:/opt/Dropbox-Uploader
 
-RUN npm install -g n && apt-get remove -y nodejs && n lts
+RUN pip3 install -U pip
+RUN pip3 install -U hooks4git
+RUN pip3 install -U awscli
 
-RUN npm install -g \
-    npm \
-    eslint \
-    markdownlint-cli \
-    dockerfile_lint \
-    travis-lint
+RUN rm -rf /root/.cache/pip
 
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+RUN npm install -g markdownlint-cli
+RUN npm install -g dockerfile_lint
+RUN npm install -g travis-lint
 
-# Default to UTF-8 file.encoding
-ENV LANG=C.UTF-8 \
-    LC_ALL=C.UTF-8 \
-    LANGUAGE=C.UTF-8
+RUN npm cache clean --force
 
 # Xvfb provide an in-memory X-session for tests that require a GUI
 ENV DISPLAY=:99
@@ -59,9 +47,6 @@ RUN mkdir -p /opt/atlassian/bitbucketci/agent/build \
 
 RUN mkdir -p /code/src
 RUN mkdir -p /code/build
-
-RUN rm -rf /root/.cache/pip
-RUN npm cache clean --force
 
 # WORKDIR /opt/atlassian/bitbucketci/agent/build
 WORKDIR /code

@@ -17,4 +17,4 @@ before_script:
 - dockerfile_lint Dockerfile
 - markdownlint README.md
 script:
-- docker build --network=host -t local/bob .
+- docker build --network=host -t lovato/bob .
