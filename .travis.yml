@@ -26,11 +26,11 @@ script:
 - ./android/ndk/build.sh
 after_script:
 - ./test.sh
-- ./cpp/test.sh
-- ./python/test.sh
-- ./nodejs/test.sh
-- ./java/test.sh
-- ./android/test.sh
-- ./android/ndk/test.sh
+- cd cpp && ./test.sh && cd ..
+- cd python && ./test.sh && cd ..
+- cd nodejs && ./test.sh && cd ..
+- cd java && ./test.sh && cd ..
+- cd android && ./test.sh && cd ..
+- cd android/ndk && ./test.sh && cd ../..
 notifications:
-  email: false
+  email: true
