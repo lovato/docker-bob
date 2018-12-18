@@ -25,12 +25,6 @@ script:
 - ./android/build.sh
 - ./android/ndk/build.sh
 after_script:
-- ./test.sh
-- cd cpp && ./test.sh && cd ..
-- cd python && ./test.sh && cd ..
-- cd nodejs && ./test.sh && cd ..
-- cd java && ./test.sh && cd ..
-- cd android && ./test.sh && cd ..
-- cd android/ndk && ./test.sh && cd ../..
+- ./test-all.sh
 notifications:
   email: true
