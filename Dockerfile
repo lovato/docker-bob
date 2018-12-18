@@ -48,6 +48,11 @@ RUN mkdir -p /opt/atlassian/bitbucketci/agent/build \
 RUN mkdir -p /code/src
 RUN mkdir -p /code/build
 
+# Default to UTF-8 file.encoding
+ENV LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    LANGUAGE=C.UTF-8
+
 # WORKDIR /opt/atlassian/bitbucketci/agent/build
 WORKDIR /code
-ENTRYPOINT /bin/bash
+CMD ["/bin/bash"]

@@ -26,8 +26,3 @@ ENV ANT_HOME="/usr/share/ant"
 ENV MAVEN_HOME="/usr/share/maven"
 
 ENV PATH $PATH:$ANT_HOME/bin:$MAVEN_HOME/bin
-
-# Default to UTF-8 file.encoding
-ENV LANG=C.UTF-8 \
-    LC_ALL=C.UTF-8 \
-    LANGUAGE=C.UTF-8

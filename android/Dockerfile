@@ -12,6 +12,8 @@ ENV ANDROID_HOME="/opt/android"
 
 ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS_VERSION:$GRADLE_HOME/bin
 
+RUN mkdir ~/.android
+RUN touch ~/.android/repositories.cfg
 RUN dpkg --add-architecture i386
 RUN apt-get update
 RUN apt-get install -y gradle
@@ -26,7 +28,6 @@ RUN yes | /opt/android/tools/bin/sdkmanager --licenses
 # RUN /opt/android/tools/bin/sdkmanager build-tools;${ANDROID_BUILD_TOOLS_VERSION} platforms;${ANDROID_APIS}
 RUN android update sdk --use-sdk-wrapper -a -u -t platform-tools,${ANDROID_APIS},build-tools-${ANDROID_BUILD_TOOLS_VERSION}
 RUN /opt/android/tools/bin/sdkmanager --update
-RUN chmod a+x -R $ANDROID_HOME
-RUN chown -R root:root $ANDROID_HOME
+
 # CleanUp
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get autoremove -y && apt-get clean autoclean

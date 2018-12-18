@@ -17,4 +17,20 @@ before_script:
 - dockerfile_lint Dockerfile
 - markdownlint README.md
 script:
-- docker build --network=host -t lovato/bob .
+- ./build.sh
+- ./cpp/build.sh
+- ./python/build.sh
+- ./nodejs/build.sh
+- ./java/build.sh
+- ./android/build.sh
+- ./android/ndk/build.sh
+after_script:
+- ./test.sh
+- ./cpp/test.sh
+- ./python/test.sh
+- ./nodejs/test.sh
+- ./java/test.sh
+- ./android/test.sh
+- ./android/ndk/test.sh
+notifications:
+  email: false
