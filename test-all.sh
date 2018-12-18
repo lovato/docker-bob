@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 set -x
-pwd
-env
 echo
 echo Testing BOB
 echo ================================

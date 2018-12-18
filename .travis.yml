@@ -25,7 +25,7 @@ script:
 # - ./android/build.sh
 # - ./android/ndk/build.sh
 after_script:
-- docker images
 - set -e && ./test-all.sh
+- docker images
 notifications:
   email: true
