@@ -1,6 +1,6 @@
 FROM lovato/bob
 
-LABEL name lovato:bob-nodejs
+LABEL name lovato/bob-nodejs
 LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 

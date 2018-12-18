@@ -1,6 +1,6 @@
 FROM lovato/bob-java
 
-LABEL name lovato:bob-android
+LABEL name lovato/bob-android
 LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 

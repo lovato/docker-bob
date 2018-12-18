@@ -1,6 +1,6 @@
 FROM lovato/bob-android
 
-LABEL name lovato:bob-android-ndk
+LABEL name lovato/bob-android-ndk
 LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 

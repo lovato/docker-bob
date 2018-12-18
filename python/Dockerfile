@@ -1,6 +1,6 @@
 FROM lovato/bob
 
-LABEL name lovato:bob-python
+LABEL name lovato/bob-python
 LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 
