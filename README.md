@@ -1,8 +1,7 @@
-# bob
+# Bob, The Builder
 
-Bob, The Builder
-![lovato/bob](/bob.jpg?raw=true)
-"Can we *build* it? Yes we can!"
+![lovato/bob](/bob.jpg?raw=true)  
+"Can we _build_ it? Yes we can!"
 
 ## What
 
@@ -69,8 +68,8 @@ There are several derivated containers for building on such languages.
 #### Run Image from Local Source
 
 - ./run.sh
-  > Every sub container has a ./run.sh script
-  > It accepts one parameter and injects it into the container execution.
+  > Every sub container has a ./run.sh script  
+  > It accepts one parameter and injects it into the container execution.  
   > If no parameter is issued, the execution starts in interactive mode.
 
 #### Run Image from Docker Hub
