@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
-cd $(dirname $0)
-../test.sh
+export PROJECT_ROOT=$(git rev-parse --show-toplevel)
+$PROJECT_ROOT/test.sh
 echo Testing BOB-CPP
 echo ================================
 echo
-./run.sh "gcc --version && cmake --version"
+$PROJECT_ROOT/cpp/run.sh "gcc --version && cmake --version"
 echo

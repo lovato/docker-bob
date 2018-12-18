@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
-cd $(dirname $0)
-../test.sh
+export PROJECT_ROOT=$(git rev-parse --show-toplevel)
+$PROJECT_ROOT/android/test.sh
 echo Testing BOB-ANDROID-NDK
 echo ================================
 echo
-./run.sh "sdkmanager --list"
+$PROJECT_ROOT/android/ndk/run.sh "sdkmanager --list"
 echo

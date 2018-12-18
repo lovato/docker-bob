@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
-cd $(dirname $0)
-../test.sh
+export PROJECT_ROOT=$(git rev-parse --show-toplevel)
+$PROJECT_ROOT/test.sh
 echo Testing BOB-PYTHON
 echo ================================
 echo
-./run.sh "python2 --version && python3 --version && pipenv --version"
+$PROJECT_ROOT/python/run.sh "python2 --version && python3 --version && pipenv --version"
 echo

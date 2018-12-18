@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
-cd $(dirname $0)
-../java/test.sh
+export PROJECT_ROOT=$(git rev-parse --show-toplevel)
+$PROJECT_ROOT/java/test.sh
 echo Testing BOB-ANDROID
 echo ================================
 echo
-./run.sh "gradle -v && sdkmanager --list"
+$PROJECT_ROOT/android/run.sh "gradle -v && sdkmanager --list"
 echo

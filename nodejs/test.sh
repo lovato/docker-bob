@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
-cd $(dirname $0)
-../test.sh
+export PROJECT_ROOT=$(git rev-parse --show-toplevel)
+$PROJECT_ROOT/test.sh
 echo Testing BOB-NODEJS
 echo ================================
 echo
-./run.sh "echo -n 'nodejs ' && node --version"
+$PROJECT_ROOT/nodejs/run.sh "echo -n 'nodejs ' && node --version"
 echo

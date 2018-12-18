@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
-cd $(dirname $0)
+export PROJECT_ROOT=$(git rev-parse --show-toplevel)
 echo Testing BOB
 echo ================================
 echo
-./run.sh "lsb_release -a && pip --version && echo -n 'npm ' && npm --version"
+$PROJECT_ROOT/run.sh "lsb_release -a && pip --version && echo -n 'npm ' && npm --version"
 echo
