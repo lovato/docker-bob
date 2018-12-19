@@ -5,20 +5,20 @@ LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 
 RUN apt-get update -qq
-RUN apt-get install -y software-properties-common
-RUN apt-get install -y build-essential
-RUN apt-get install -y wget curl
-RUN apt-get install -y vim
-RUN apt-get install -y xvfb
-RUN apt-get install -y git mercurial
-RUN apt-get install -y ssh-client
-RUN apt-get install -y zip unzip
-RUN apt-get install -y iputils-ping
-RUN apt-get install -y redis-server
-RUN apt-get install -y httpie
-RUN apt-get install -y rpm
-RUN apt-get install -y npm
-RUN apt-get install -y python3-pip
+RUN apt-get install -y -qq software-properties-common
+RUN apt-get install -y -qq build-essential
+RUN apt-get install -y -qq wget curl
+RUN apt-get install -y -qq vim
+RUN apt-get install -y -qq xvfb
+RUN apt-get install -y -qq git mercurial
+RUN apt-get install -y -qq ssh-client
+RUN apt-get install -y -qq zip unzip
+RUN apt-get install -y -qq iputils-ping
+RUN apt-get install -y -qq redis-server
+RUN apt-get install -y -qq httpie
+RUN apt-get install -y -qq rpm
+RUN apt-get install -y -qq npm
+RUN apt-get install -y -qq python3-pip
 # CleanUp
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get autoremove -y && apt-get clean autoclean
 

@@ -15,11 +15,11 @@ ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platfor
 RUN mkdir ~/.android
 RUN touch ~/.android/repositories.cfg
 RUN dpkg --add-architecture i386
-RUN apt-get update
-RUN apt-get install -y gradle
-RUN apt-get install -y libncurses5:i386
-RUN apt-get install -y libstdc++6:i386
-RUN apt-get install -y zlib1g:i386
+RUN apt-get update -qq
+RUN apt-get install -y -qq gradle
+RUN apt-get install -y -qq libncurses5:i386
+RUN apt-get install -y -qq libstdc++6:i386
+RUN apt-get install -y -qq zlib1g:i386
 RUN mkdir /opt/android
 RUN wget -nv -O /opt/android/tools.zip ${ANDROID_SDK_URL}
 RUN cd /opt/android/ && unzip tools.zip

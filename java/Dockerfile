@@ -12,11 +12,11 @@ RUN apt-get update -qq
 
 # automatically accept the Oracle license
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-RUN apt-get install -y --no-install-recommends oracle-java8-installer
-RUN apt-get install -y --no-install-recommends oracle-java8-set-default
+RUN apt-get install -y -qq --no-install-recommends oracle-java8-installer
+RUN apt-get install -y -qq --no-install-recommends oracle-java8-set-default
 
-RUN apt-get install -y --no-install-recommends maven
-RUN apt-get install -y --no-install-recommends ant
+RUN apt-get install -y -qq --no-install-recommends maven
+RUN apt-get install -y -qq --no-install-recommends ant
 # CleanUp
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get autoremove -y && apt-get clean autoclean
 

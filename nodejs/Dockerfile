@@ -6,7 +6,7 @@ LABEL maintainer="maglovato@gmail.com"
 
 RUN npm install -g n
 
-RUN apt-get remove -y nodejs
+RUN apt-get remove -y -qq nodejs
 # CleanUp
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get autoremove -y && apt-get clean autoclean
 
