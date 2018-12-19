@@ -17,13 +17,13 @@ before_script:
 - dockerfile_lint Dockerfile
 - markdownlint README.md
 script:
-- ./build.sh
-- ./cpp/build.sh
-- ./python/build.sh
-- ./nodejs/build.sh
-- ./java/build.sh
-- ./android/build.sh
-- ./android/ndk/build.sh
+- ./build.sh --quiet
+- ./cpp/build.sh --quiet
+- ./python/build.sh --quiet
+- ./nodejs/build.sh --quiet
+- ./java/build.sh --quiet
+- ./android/build.sh --quiet
+- ./android/ndk/build.sh --quiet
 after_script:
 - set -e && ./test-all.sh
 - docker images

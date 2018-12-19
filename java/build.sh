@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build --network=host -t lovato/bob-java $(dirname $0)/.
+docker build $1 --network=host -t lovato/bob-java $(dirname $0)/.
