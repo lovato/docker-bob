@@ -5,20 +5,20 @@ LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 
 RUN apt-get update -qq
-RUN apt-get install -y --no-install-recommends software-properties-common
-RUN apt-get install -y --no-install-recommends build-essential
-RUN apt-get install -y --no-install-recommends wget curl
-RUN apt-get install -y --no-install-recommends vim
-RUN apt-get install -y --no-install-recommends xvfb
-RUN apt-get install -y --no-install-recommends git mercurial
-RUN apt-get install -y --no-install-recommends ssh-client
-RUN apt-get install -y --no-install-recommends zip unzip
-RUN apt-get install -y --no-install-recommends iputils-ping
-RUN apt-get install -y --no-install-recommends redis-server
-RUN apt-get install -y --no-install-recommends httpie
-RUN apt-get install -y --no-install-recommends rpm
-RUN apt-get install -y --no-install-recommends npm
-RUN apt-get install -y --no-install-recommends python3-pip
+RUN apt-get install -y software-properties-common
+RUN apt-get install -y build-essential
+RUN apt-get install -y wget curl
+RUN apt-get install -y vim
+RUN apt-get install -y xvfb
+RUN apt-get install -y git mercurial
+RUN apt-get install -y ssh-client
+RUN apt-get install -y zip unzip
+RUN apt-get install -y iputils-ping
+RUN apt-get install -y redis-server
+RUN apt-get install -y httpie
+RUN apt-get install -y rpm
+RUN apt-get install -y npm
+RUN apt-get install -y python3-pip
 # CleanUp
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get autoremove -y && apt-get clean autoclean
 
