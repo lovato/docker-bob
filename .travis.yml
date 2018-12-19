@@ -20,10 +20,10 @@ script:
 - ./build.sh
 - ./cpp/build.sh
 - ./python/build.sh
-# - ./nodejs/build.sh
-# - ./java/build.sh
-# - ./android/build.sh
-# - ./android/ndk/build.sh
+- ./nodejs/build.sh
+- ./java/build.sh
+- ./android/build.sh
+- ./android/ndk/build.sh
 after_script:
 - set -e && ./test-all.sh
 - docker images
