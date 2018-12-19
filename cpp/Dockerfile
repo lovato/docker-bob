@@ -4,9 +4,9 @@ LABEL name lovato/bob-cpp
 LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 
-RUN apt-get update
-RUN apt-get install -y gcc-multilib
-RUN apt-get install -y g++-multilib cmake
+RUN apt-get update -qq
+RUN apt-get install -y --no-install-recommends gcc-multilib
+RUN apt-get install -y --no-install-recommends g++-multilib cmake
 
 # CleanUp
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get autoremove -y && apt-get clean autoclean
