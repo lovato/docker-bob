@@ -47,6 +47,7 @@ RUN mkdir -p /opt/atlassian/bitbucketci/agent/build \
 
 RUN mkdir -p /code/src
 RUN mkdir -p /code/build
+RUN chmod -R 777 /code
 
 # Default to UTF-8 file.encoding
 ENV LANG=C.UTF-8 \
