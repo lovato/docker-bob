@@ -1,6 +1,7 @@
 # Bob, The Builder
 
-![lovato/bob](/bob.jpg?raw=true)  
+![lovato/bob](https://github.com/lovato/docker-bob/raw/develop/bob.jpg?raw=true)
+
 "Can we _build_ it? Yes we can!"
 
 ## What
