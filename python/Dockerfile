@@ -7,5 +7,6 @@ LABEL maintainer="maglovato@gmail.com"
 RUN pip3 install -U vex
 RUN pip3 install -U pipenv
 RUN pip3 install -U flake8
+RUN pip3 install -U twine
 
 RUN rm -rf /root/.cache/pip
