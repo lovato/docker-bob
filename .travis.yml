@@ -11,7 +11,7 @@ install:
 - npm install -g npm
 - npm install
 before_script:
-- pip3 install hooks4git
+- pip install hooks4git
 - hooks4git -t pre-commit
 script:
 - ./build.sh --quiet
