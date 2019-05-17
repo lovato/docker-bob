@@ -9,13 +9,10 @@ before_install:
 - sudo apt-get update -qq
 install:
 - npm install -g npm
-- npm install -g dockerfile_lint
-- npm install -g markdownlint-cli
-- npm install -g travis-lint
+- npm install
 before_script:
-- travis-lint .travis.yml
-- dockerfile_lint Dockerfile
-- markdownlint README.md
+- pip3 install hooks4git
+- hooks4git -t pre-commit
 script:
 - ./build.sh --quiet
 - ./cpp/build.sh --quiet

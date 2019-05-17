@@ -15,11 +15,11 @@ ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platfor
 RUN mkdir ~/.android
 RUN touch ~/.android/repositories.cfg
 RUN dpkg --add-architecture i386
-RUN apt-get update -qq
-RUN apt-get install -y -qq gradle
-RUN apt-get install -y -qq libncurses5:i386
-RUN apt-get install -y -qq libstdc++6:i386
-RUN apt-get install -y -qq zlib1g:i386
+RUN apt update -qq
+RUN apt install -y -qq gradle
+RUN apt install -y -qq libncurses5:i386
+RUN apt install -y -qq libstdc++6:i386
+RUN apt install -y -qq zlib1g:i386
 RUN mkdir /opt/android
 RUN wget -nv -O /opt/android/tools.zip ${ANDROID_SDK_URL}
 RUN cd /opt/android/ && unzip tools.zip
@@ -30,4 +30,4 @@ RUN android update sdk --use-sdk-wrapper -a -u -t platform-tools,${ANDROID_APIS}
 RUN /opt/android/tools/bin/sdkmanager --update
 
 # CleanUp
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get autoremove -y && apt-get clean autoclean
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt autoremove -y && apt clean autoclean
