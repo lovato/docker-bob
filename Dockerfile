@@ -28,7 +28,7 @@ ENV PATH $PATH:/opt/Dropbox-Uploader
 RUN pip3 install -U pip
 RUN pip3 install -U hooks4git
 RUN pip3 install -U awscli
-RUN pip3 install -U awsebcli
+RUN LC_ALL=C pip3 install -U awsebcli
 
 RUN rm -rf /root/.cache/pip
 

@@ -20,15 +20,15 @@ install:
 - npm install
 - pip install hooks4git
 before_script:
-- hooks4git -t pre-commit
+- hooks4git -t pre-commit || travis_terminate 1;
 script:
-- ./build.sh --quiet
-- ./cpp/build.sh --quiet
-- ./python/build.sh --quiet
-- ./nodejs/build.sh --quiet
-- ./java/build.sh --quiet
-- ./android/build.sh --quiet
-- ./android/ndk/build.sh --quiet
+- ./build.sh --quiet || travis_terminate 1;
+- ./cpp/build.sh --quiet || travis_terminate 1;
+- ./python/build.sh --quiet || travis_terminate 1;
+- ./nodejs/build.sh --quiet || travis_terminate 1;
+- ./java/build.sh --quiet || travis_terminate 1;
+- ./android/build.sh --quiet || travis_terminate 1;
+- ./android/ndk/build.sh --quiet || travis_terminate 1;
 after_script:
 - set -e && ./test-all.sh
 - docker images
