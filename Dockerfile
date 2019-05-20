@@ -25,10 +25,13 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt autoremove -y && apt cl
 RUN cd /opt && git clone https://github.com/andreafabrizi/Dropbox-Uploader.git
 ENV PATH $PATH:/opt/Dropbox-Uploader
 
+ENV LC_ALL "en_US.UTF-8"
+ENV LC_CTYPE "en_US.UTF-8"
+
 RUN pip3 install -U pip
 RUN pip3 install -U hooks4git
 RUN pip3 install -U awscli
-RUN LC_ALL=C pip3 install -U awsebcli
+RUN pip3 install -U awsebcli
 
 RUN rm -rf /root/.cache/pip
 
