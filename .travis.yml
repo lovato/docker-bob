@@ -1,29 +1,35 @@
 sudo: required
-language: generic
+dist: bionic
+language: python
+python:
+  - "3.6"
 services:
 - docker
 branches:
   except:
   - master
-before_install:
-- sudo apt-get update -qq
+cache:
+- pip
+- npm
+addons:
+  apt:
+    update: true
+    packages:
+    - nodejs
+    - npm
 install:
-- npm install -g npm
-- npm install -g dockerfile_lint
-- npm install -g markdownlint-cli
-- npm install -g travis-lint
+- npm install
+- pip install hooks4git
 before_script:
-- travis-lint .travis.yml
-- dockerfile_lint Dockerfile
-- markdownlint README.md
+- hooks4git -t pre-commit || travis_terminate 1;
 script:
-- ./build.sh --quiet
-- ./cpp/build.sh --quiet
-- ./python/build.sh --quiet
-- ./nodejs/build.sh --quiet
-- ./java/build.sh --quiet
-- ./android/build.sh --quiet
-- ./android/ndk/build.sh --quiet
+- ./build.sh --quiet || travis_terminate 1;
+- ./cpp/build.sh --quiet || travis_terminate 1;
+- ./python/build.sh --quiet || travis_terminate 1;
+- ./nodejs/build.sh --quiet || travis_terminate 1;
+- ./java/build.sh --quiet || travis_terminate 1;
+- ./android/build.sh --quiet || travis_terminate 1;
+- ./android/ndk/build.sh --quiet || travis_terminate 1;
 after_script:
 - set -e && ./test-all.sh
 - docker images

@@ -1,0 +1,26 @@
+{
+  "name": "docker-bob",
+  "version": "1.0.0",
+  "description": "![lovato/bob](https://github.com/lovato/docker-bob/raw/develop/bob.jpg?raw=true)",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "dockerfile_lint": "*",
+    "markdownlint": "*",
+    "travis-lint": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lovato/docker-bob.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lovato/docker-bob/issues"
+  },
+  "homepage": "https://github.com/lovato/docker-bob#readme"
+}
