@@ -25,10 +25,10 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt autoremove -y && apt cl
 RUN cd /opt && git clone https://github.com/andreafabrizi/Dropbox-Uploader.git
 ENV PATH $PATH:/opt/Dropbox-Uploader
 
-ENV LC_ALL "en_US.UTF-8"
-ENV LC_CTYPE "en_US.UTF-8"
-ENV LANG "en_US.UTF-8"
-ENV PYTHONIOENCODING "UTF-8"
+RUN export LC_ALL=en_US.UTF-8
+RUN export LC_CTYPE=en_US.UTF-8
+RUN export LANG=en_US.UTF-8
+RUN export PYTHONIOENCODING=UTF-8
 
 RUN pip3 install -U pip
 RUN pip3 install -U hooks4git
