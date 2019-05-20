@@ -1,17 +1,25 @@
 sudo: required
-language: generic
+language: python
+python:
+  - "3.6"
 services:
 - docker
 branches:
   except:
   - master
-before_install:
-- sudo apt-get update -qq
+cache:
+- pip
+- npm
+addons:
+  apt:
+    update: true
+    packages:
+    - nodejs
+    - npm
 install:
-- npm install -g npm
 - npm install
-before_script:
 - pip install hooks4git
+before_script:
 - hooks4git -t pre-commit
 script:
 - ./build.sh --quiet
