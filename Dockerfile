@@ -25,15 +25,18 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt autoremove -y && apt cl
 RUN cd /opt && git clone https://github.com/andreafabrizi/Dropbox-Uploader.git
 ENV PATH $PATH:/opt/Dropbox-Uploader
 
-RUN export LC_ALL=en_US.UTF-8
-RUN export LC_CTYPE=en_US.UTF-8
-RUN export LANG=en_US.UTF-8
-RUN export PYTHONIOENCODING=UTF-8
-
 RUN pip3 install -U pip
 RUN pip3 install -U hooks4git
 RUN pip3 install -U awscli
-RUN pip3 install -U awsebcli
+
+# ENV AWSEBCLI $(pip search awsebcli 2>&1 | head -n 1 | cut -d'(' -f2 | cut -d')' -f1)
+RUN wget https://files.pythonhosted.org/packages/ca/60/36b47119a2791a4ff3d4b4456d15545b7eed40815e64757d3d3d526323a4/awsebcli-3.15.1.tar.gz
+RUN gunzip awsebcli-3.15.1.tar.gz
+RUN tar xvf awsebcli-3.15.1.tar
+RUN rm -f awsebcli-3.15.1.tar
+RUN rm -f ./awsebcli-3.15.1/CHANGES.rst
+RUN echo 'WhyAWS?Why?' > ./awsebcli-3.15.1/CHANGES.rst
+RUN pip3 install -U ./awsebcli-3.15.1
 
 RUN rm -rf /root/.cache/pip
 
