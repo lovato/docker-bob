@@ -40,6 +40,7 @@ There are several derivated containers for building on such languages.
 
 - zip & unzip
 - awscli
+- [serverless](https://github.com/serverless/serverless)
 - Dropbox Uploader
 
 ## Available Sub Containers
