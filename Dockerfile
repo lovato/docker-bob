@@ -44,6 +44,8 @@ RUN npm install -g markdownlint-cli
 RUN npm install -g dockerfile_lint
 RUN npm install -g travis-lint
 
+RUN npm install -g serverless
+
 RUN npm cache clean --force
 
 # Xvfb provide an in-memory X-session for tests that require a GUI
