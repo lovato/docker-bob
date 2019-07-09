@@ -5,8 +5,8 @@ LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 
 ENV ANDROID_SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip"
-ENV ANDROID_BUILD_TOOLS_VERSION=28.0.3
-ENV ANDROID_APIS="android-19,android-20,android-21,android-22,android-23,android-24,android-25,android-26,android-27,android-28"
+ENV ANDROID_BUILD_TOOLS_VERSION=29.0.0
+ENV ANDROID_APIS="android-19,android-20,android-21,android-22,android-23,android-24,android-25,android-26,android-27,android-28,android-29"
 ENV GRADLE_HOME="/usr/share/gradle"
 ENV ANDROID_HOME="/opt/android"
 
