@@ -14,6 +14,6 @@ RUN n lts
 RUN npm install -g eslint
 
 # https://artillery.io/
-RUN npm install -g artillery
+RUN npm install -g artillery --allow-root --unsafe-perm=true
 
 RUN npm cache clean --force
