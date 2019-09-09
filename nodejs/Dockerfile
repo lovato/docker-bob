@@ -12,4 +12,8 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt autoremove -y && apt cl
 
 RUN n lts
 RUN npm install -g eslint
+
+# https://artillery.io/
+RUN npm install -g artillery
+
 RUN npm cache clean --force
