@@ -30,6 +30,7 @@ script:
 - ./java/build.sh --quiet || travis_terminate 1;
 - ./android/build.sh --quiet || travis_terminate 1;
 - ./android/ndk/build.sh --quiet || travis_terminate 1;
+- ./serverless/build.sh --quiet || travis_terminate 1;
 after_script:
 - set -e && ./test-all.sh
 - docker images
