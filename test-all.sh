@@ -37,3 +37,8 @@ echo ================================
 echo
 ./android/ndk/run.sh "sdkmanager --list"
 echo
+echo Testing BOB-SERVERLESS
+echo ================================
+echo
+./serverless/run.sh "serverless --list"
+echo
