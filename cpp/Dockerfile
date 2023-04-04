@@ -4,6 +4,8 @@ LABEL name lovato/bob-cpp
 LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt update -qq
 RUN apt install -y -qq --no-install-recommends gcc-multilib
 RUN apt install -y -qq --no-install-recommends g++-multilib cmake

@@ -46,7 +46,7 @@ There are several derivated containers for building on such languages.
 ## Available Sub Containers
 
 - C++
-- Python
+- Python (2.7/3.6/3.7/3.8/3.9/3.10/3.11)
 - NodeJS
 - Java8 - Android - Android with NDK
 

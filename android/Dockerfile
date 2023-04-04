@@ -4,6 +4,8 @@ LABEL name lovato/bob-android
 LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 ENV ANDROID_SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip"
 ENV ANDROID_BUILD_TOOLS_VERSION="build-tools-29.0.0,build-tools-28.0.2"
 ENV ANDROID_APIS="android-19,android-20,android-21,android-22,android-23,android-24,android-25,android-26,android-27,android-28,android-29"

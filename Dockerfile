@@ -4,6 +4,8 @@ LABEL name lovato/bob
 LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt update -qq
 RUN apt install -y -qq software-properties-common
 RUN apt install -y -qq build-essential
@@ -16,9 +18,13 @@ RUN apt install -y -qq zip unzip
 RUN apt install -y -qq iputils-ping
 RUN apt install -y -qq redis-server
 RUN apt install -y -qq httpie
-RUN apt install -y -qq rpm
-RUN apt install -y -qq npm
+RUN apt install -y -qq rpm alien
 RUN apt install -y -qq python3-pip
+
+RUN curl -sL https://deb.nodesource.com/setup_17.x -o /tmp/nodesource_setup.sh
+RUN bash /tmp/nodesource_setup.sh
+RUN apt install -y nodejs
+
 # CleanUp
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt autoremove -y && apt clean autoclean
 
@@ -44,7 +50,7 @@ RUN npm install -g markdownlint-cli
 RUN npm install -g dockerfile_lint
 RUN npm install -g travis-lint
 
-RUN npm install -g serverless
+# RUN npm install -g serverless
 
 RUN npm cache clean --force
 

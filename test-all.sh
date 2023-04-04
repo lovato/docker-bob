@@ -11,14 +11,10 @@ echo Testing BOB-CPP additions to BOB
 echo ================================
 echo
 docker run --net=host lovato/bob-cpp /bin/bash -c "gcc --version && cmake --version"
-echo
-echo Testing BOB-PYTHON additions to BOB
-echo ================================
-echo
-docker run --net=host lovato/bob-python /bin/bash -c "python2 --version && python3 --version && pipenv --version"
+./python/test.sh
 echo
 echo Testing BOB-NODEJS additions to BOB
-echo ================================
+gitecho ================================
 echo
 ./nodejs/run.sh "echo -n 'nodejs ' && node --version"
 echo
@@ -36,4 +32,9 @@ echo Testing BOB-ANDROID-NDK additions to BOB-ANDROID
 echo ================================
 echo
 ./android/ndk/run.sh "sdkmanager --list"
+echo
+echo Testing BOB-SERVERLESS
+echo ================================
+echo
+./serverless/run.sh "serverless --list"
 echo
