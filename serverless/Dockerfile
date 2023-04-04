@@ -4,6 +4,8 @@ LABEL name lovato/bob-serverless
 LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN adduser --system serverless-user
 
 RUN export DEBIAN_FRONTEND=noninteractive

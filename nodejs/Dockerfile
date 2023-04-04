@@ -4,6 +4,8 @@ LABEL name lovato/bob-nodejs
 LABEL version 1
 LABEL maintainer="maglovato@gmail.com"
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN npm install -g n
 
 RUN apt remove -y -qq nodejs
